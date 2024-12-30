@@ -174,7 +174,7 @@
             const suffix = document.getElementById('suffix').value;
             const inputText = document.getElementById('input-text').value;
 
-            const modifiedText = `${prefix} ${inputText} ${suffix}`.trim();
+            const modifiedText = `${prefix}${inputText}${suffix}`;
 
             document.getElementById('output-box').textContent = modifiedText;
         }
