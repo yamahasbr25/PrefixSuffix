@@ -85,7 +85,7 @@
             const suffix = document.getElementById('suffix').value;
             const inputText = document.getElementById('input-text').value;
 
-            const modifiedText = `${prefix}${inputText}${suffix}`;
+            const modifiedText = `${prefix} ${inputText} ${suffix}`.trim();
 
             document.getElementById('output-box').textContent = modifiedText;
         }
