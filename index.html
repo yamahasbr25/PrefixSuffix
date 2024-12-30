@@ -28,13 +28,17 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-        .input-group input {
+        .input-group input, .input-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
             box-sizing: border-box;
+        }
+        .input-group textarea {
+            resize: vertical;
+            height: 100px;
         }
         button {
             padding: 10px 15px;
@@ -145,7 +149,7 @@
         </div>
         <div class="input-group">
             <label for="input-text">Text:</label>
-            <input type="text" id="input-text" placeholder="Enter text">
+            <textarea id="input-text" placeholder="Enter text"></textarea>
         </div>
         <button onclick="modifyText()">Add Prefix and/or Suffix</button>
 
