@@ -191,7 +191,9 @@
             const suffix = document.getElementById('suffix').value;
             const inputText = document.getElementById('input-text').value;
 
-            const modifiedText = `${prefix}${inputText}${suffix}`;
+            const lines = inputText.split('\n');
+            const modifiedLines = lines.map(line => `${prefix}${line}${suffix}`);
+            const modifiedText = modifiedLines.join('\n');
 
             document.getElementById('output-box').textContent = modifiedText;
         }
