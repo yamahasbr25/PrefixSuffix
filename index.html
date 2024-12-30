@@ -51,10 +51,62 @@
             font-size: 0.9em;
             color: #555;
         }
+        .menu {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            cursor: pointer;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .popup .close {
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #007BFF;
+        }
+        .popup .close:hover {
+            text-decoration: underline;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="menu">
+            <a onclick="showPopup('disclaimer')">Disclaimer</a>
+            <a onclick="showPopup('privacy-policy')">Privacy Policy</a>
+            <a onclick="showPopup('contact-us')">Contact Us</a>
+            <a onclick="showPopup('about')">About</a>
+        </div>
+
         <h1>Output Box Tool</h1>
         <div class="input-group">
             <label for="prefix">Prefix:</label>
@@ -79,6 +131,29 @@
         </div>
     </div>
 
+    <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+
+    <div class="popup" id="disclaimer">
+        <span class="close" onclick="hidePopup()">Close</span>
+        <h2>Disclaimer</h2>
+        <p>This is the disclaimer page content.</p>
+    </div>
+    <div class="popup" id="privacy-policy">
+        <span class="close" onclick="hidePopup()">Close</span>
+        <h2>Privacy Policy</h2>
+        <p>This is the privacy policy page content.</p>
+    </div>
+    <div class="popup" id="contact-us">
+        <span class="close" onclick="hidePopup()">Close</span>
+        <h2>Contact Us</h2>
+        <p>This is the contact us page content.</p>
+    </div>
+    <div class="popup" id="about">
+        <span class="close" onclick="hidePopup()">Close</span>
+        <h2>About</h2>
+        <p>This is the about page content.</p>
+    </div>
+
     <script>
         function modifyText() {
             const prefix = document.getElementById('prefix').value;
@@ -88,6 +163,17 @@
             const modifiedText = `${prefix} ${inputText} ${suffix}`.trim();
 
             document.getElementById('output-box').textContent = modifiedText;
+        }
+
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => popup.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </body>
