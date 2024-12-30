@@ -157,6 +157,8 @@
             Modified text will display here after entering the prefix and/or suffix into their appropriate field and clicking the "Add Prefix and/or Suffix" button above.
         </div>
 
+        <button onclick="clearPage()">Clear</button>
+
         <div class="privacy-note">
             Privacy of Data: This tool is built with and functions in Client-Side JavaScripting, so only your computer will see or process your data input/output.
         </div>
@@ -196,6 +198,10 @@
             const modifiedText = modifiedLines.join('\n');
 
             document.getElementById('output-box').textContent = modifiedText;
+        }
+
+        function clearPage() {
+            location.reload();
         }
 
         function showPopup(id) {
