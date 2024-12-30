@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Box Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+        .privacy-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Output Box Tool</h1>
+        <div class="input-group">
+            <label for="prefix">Prefix:</label>
+            <input type="text" id="prefix" placeholder="Enter prefix">
+        </div>
+        <div class="input-group">
+            <label for="suffix">Suffix:</label>
+            <input type="text" id="suffix" placeholder="Enter suffix">
+        </div>
+        <div class="input-group">
+            <label for="input-text">Text:</label>
+            <input type="text" id="input-text" placeholder="Enter text">
+        </div>
+        <button onclick="modifyText()">Add Prefix and/or Suffix</button>
+
+        <div class="output-box" id="output-box">
+            Modified text will display here after entering the prefix and/or suffix into their appropriate field and clicking the "Add Prefix and/or Suffix" button above.
+        </div>
+
+        <div class="privacy-note">
+            Privacy of Data: This tool is built with and functions in Client-Side JavaScripting, so only your computer will see or process your data input/output.
+        </div>
+    </div>
+
+    <script>
+        function modifyText() {
+            const prefix = document.getElementById('prefix').value;
+            const suffix = document.getElementById('suffix').value;
+            const inputText = document.getElementById('input-text').value;
+
+            const modifiedText = `${prefix}${inputText}${suffix}`;
+
+            document.getElementById('output-box').textContent = modifiedText;
+        }
+    </script>
+</body>
+</html>
